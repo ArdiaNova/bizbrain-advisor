@@ -2,6 +2,10 @@
 
 ![BizBrain Dashboard](docs/images/bizbrain-advisor_SS01_before-run.png)
 
+## 🎬 2:25-Minute Demo
+
+[![Watch Demo](docs/images/bizbrain-advisor.png)](https://youtu.be/GlsfhoGCPYQ)
+
 ## 📌 Project Overview
 
 BizBrain Advisor is a sophisticated multi-agent reasoning system designed to empower small business owners.

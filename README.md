@@ -37,10 +37,9 @@ The system identifies hidden trends in revenue, synthesizes findings into ground
 
 ---
 
-# 🏗️ Multi-Agent Architecture & Responsibilities
+### 🏗️ Multi-Agent Architecture & Responsibilities
 
----
-
+```mermaid
 graph TD
     %% User Interaction
     User[Small Business Owner] -->|Query: e.g., '15% Sales Drop'| Recommender

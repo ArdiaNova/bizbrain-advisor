@@ -171,32 +171,34 @@ This project uses strictly synthetic sample data.
 
 ### 2. Installation
 * First, clone the repository and navigate to the project folder:
-    git clone https://github.com/ArdiaNova/bizbrain-advisor.git
-    cd bizbrain-advisor
+    * git clone https://github.com/ArdiaNova/bizbrain-advisor.git
+    * cd bizbrain-advisor
 
 ### 3. Create and Activate a Virtual Environment
 This ensures your dependencies do not conflict with other projects.
-    python -m venv .venv
+    * python -m venv .venv
 
-# Windows:
+#### Windows:
 .venv\Scripts\activate
-# macOS/Linux:
+
+#### macOS/Linux:
 source .venv/bin/activate
 
 ### 4. Install Dependencies
 Install the Microsoft Agent Framework and other required libraries:
-    pip install -r requirements.txt
+    * pip install -r requirements.txt
 
 ### 5. Configure Your Environment
-    Create a .env file in the root directory. Note: Never commit this file to GitHub.
-
-* AZURE_AI_PROJECT_ENDPOINT=your-project-endpoint-here
-* AZURE_AI_MODEL_DEPLOYMENT=Phi-4-reasoning
-* AZURE_AI_PROJECT_KEY=your-key-here
+    * Create a .env file in the root directory. 
+        * **Note: Never commit this file to GitHub.**
+    
+    * AZURE_AI_PROJECT_ENDPOINT=your-project-endpoint-here
+    * AZURE_AI_MODEL_DEPLOYMENT=Phi-4-reasoning
+    * AZURE_AI_PROJECT_KEY=your-key-here
 
 ### 6. Run the Application
 Launch the advisor and browser-based reasoning interface:
-    python run_model.py
+    * python run_model.py
 
 
 #### 🛠️ Tech Stack & Data Sources

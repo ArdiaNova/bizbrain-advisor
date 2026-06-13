@@ -196,9 +196,9 @@ pip install -r requirements.txt
 
 ### Configure your environment
 Create a `.env` file in the root directory and add your credentials:
-AZURE_AI_PROJECT_ENDPOINT=your-project-endpoint-here
-AZURE_AI_MODEL_DEPLOYMENT=Phi-4-reasoning
-AZURE_AI_PROJECT_KEY=your-key-here
+    - AZURE_AI_PROJECT_ENDPOINT=your-project-endpoint-here
+    - AZURE_AI_MODEL_DEPLOYMENT=Phi-4-reasoning
+    - AZURE_AI_PROJECT_KEY=your-key-here
 
 ### Run the Application
 python run_model.py

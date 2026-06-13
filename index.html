@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BizBrain Advisor</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #07111f;
+        --panel: #0f1b2d;
+        --panel-2: #132639;
+        --text: #eff6ff;
+        --muted: #bfd3ef;
+        --accent: #38bdf8;
+        --accent-2: #c084fc;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Segoe UI, Arial, sans-serif;
+        background:
+          radial-gradient(circle at top, #17304d 0, var(--bg) 45%),
+          linear-gradient(135deg, #07111f 0%, #0f172a 100%);
+        color: var(--text);
+        min-height: 100vh;
+      }
+      .wrap { max-width: 1100px; margin: 0 auto; padding: 24px 18px 48px; }
+      header {
+        display: flex; justify-content: space-between; align-items: end; gap: 20px;
+        margin-bottom: 24px;
+      }
+      .badge {
+        display: inline-flex; align-items: center; gap: 8px;
+        border: 1px solid rgba(56,189,248,0.35);
+        background: rgba(15,27,45,0.9); border-radius: 999px;
+        padding: 8px 12px; color: var(--muted); font-size: 0.95rem;
+      }
+      h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 6px; }
+      p.lead { margin: 0; color: var(--muted); max-width: 780px; line-height: 1.5; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+      .card {
+        background: linear-gradient(180deg, rgba(15,27,45,0.96), rgba(19,38,57,0.96));
+        border: 1px solid rgba(148,163,184,0.18);
+        border-radius: 18px; padding: 16px; box-shadow: 0 12px 28px rgba(7,17,31,0.35);
+      }
+      .card h2 { margin-top: 0; font-size: 1.05rem; color: #e0f2fe; }
+      .card p, .card li { color: var(--muted); line-height: 1.45; }
+      .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+      .pill {
+        border-radius: 999px; padding: 8px 10px; background: rgba(56,189,248,0.12);
+        border: 1px solid rgba(56,189,248,0.25); font-size: 0.92rem; color: #dbeafe;
+      }
+      .quote {
+        border-left: 4px solid var(--accent); background: rgba(56,189,248,0.08);
+        padding: 10px 12px; border-radius: 10px; color: #eff6ff;
+      }
+      .negative-result { color: #fca5a5; }
+      .footer-note { color: var(--muted); font-size: 0.95rem; margin-top: 18px; }
+      code { background: rgba(148,163,184,0.12); padding: 2px 6px; border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <div>
+          <div class="badge">BizBrain Advisor • local browser view</div>
+          <h1>Strategic reasoning for small business growth</h1>
+          <p class="lead">This local page opens the BizBrain Advisor project in a browser so you can review the reasoning flow, business playbook context, and the planner/analyst/operations loop from a simple interface.</p>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Run the reasoning loop</h2>
+          <label for="scenario" style="display:block; color: var(--muted); margin-bottom: 6px; font-size: 0.95rem;">Scenario</label>
+          <textarea id="scenario" rows="4" style="width:100%; border-radius: 12px; border: 1px solid rgba(148,163,184,0.25); background: rgba(7,17,31,0.9); color: #eff6ff; padding: 10px; font: inherit;">Cappuccino sales dropped 15% in the morning. Recommend the next operational step.</textarea>
+          <p style="margin-top: 10px;"><button id="run-btn" type="button" style="border: none; border-radius: 10px; padding: 10px 12px; background: linear-gradient(135deg, #38bdf8, #818cf8); color: #04111f; font-weight: 700; cursor: pointer;">Run workflow</button></p>
+          <p id="status" data-tone="info" style="margin-top: 8px; color: #bfdbfe; font-size: 0.95rem;">Ready to run the planner → analyst → operations flow.</p>
+        </article>
+
+        <article class="card">
+          <h2>What this project does</h2>
+          <p>BizBrain Advisor uses a planner–executor workflow to analyze sales patterns, identify operational risks, and recommend immediate actions such as morning bundles for cappuccino demand recovery.</p>
+          <div class="pill-row">
+            <span class="pill">Planner</span>
+            <span class="pill">Trend Analyst</span>
+            <span class="pill">Operations</span>
+            <span class="pill">Microsoft Agent Framework</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Latest workflow output</h2>
+          <pre id="output" style="white-space: pre-wrap; background: rgba(7,17,31,0.95); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 12px; color: #e0f2fe; min-height: 180px; font-size: 0.92rem;">Run the workflow to populate the planner, analyst, and operations results here.</pre>
+        </article>
+
+        <article class="card">
+          <h2>System Trace</h2>
+          <pre id="trace" style="white-space: pre-wrap; background: rgba(7,17,31,0.95); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 12px; color: #e0f2fe; min-height: 120px; font-size: 0.92rem;">No trace yet.</pre>
+        </article>
+
+        <article class="card">
+          <h2>Metrics & Confidence</h2>
+          <pre id="metrics" style="white-space: pre-wrap; background: rgba(7,17,31,0.95); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 12px; color: #e0f2fe; min-height: 120px; font-size: 0.92rem;">No metrics yet.</pre>
+        </article>
+
+        <article class="card">
+          <h2>Grounded Citations</h2>
+          <pre id="citations" style="white-space: pre-wrap; background: rgba(7,17,31,0.95); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 12px; color: #e0f2fe; min-height: 120px; font-size: 0.92rem;">No citations yet.</pre>
+        </article>
+
+        <article class="card">
+          <h2>Evaluation Dashboard</h2>
+          <pre id="evaluation" style="white-space: pre-wrap; background: rgba(7,17,31,0.95); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 12px; color: #e0f2fe; min-height: 120px; font-size: 0.92rem;">Grounding Score: 5/5
+Relevance: 4/5
+Safety: 5/5
+Reasoning Quality: 4/5</pre>
+        </article>
+
+        <article class="card">
+          <h2>Human-in-the-Loop</h2>
+          <p style="margin-bottom: 8px;">Approve and launch the recommendation only after the critic review and grounding checks are complete.</p>
+          <button id="approve-btn" type="button" disabled style="border: none; border-radius: 10px; padding: 10px 12px; background: linear-gradient(135deg, #22c55e, #84cc16); color: #052e16; font-weight: 700; cursor: not-allowed; opacity: 0.55;">Approve & Launch</button>
+          <p id="approval-note" style="margin-top: 8px; color: #bbf7d0; font-size: 0.95rem;">No launch yet.</p>
+        </article>
+
+        <article class="card">
+          <h2>Deployment Story</h2>
+          <p>This local prototype can be packaged as a Hosted Agent in Foundry Agent Service by exposing the planner/critic/operations workflow as a secure endpoint and deploying the same reasoning loop behind a managed agent runtime.</p>
+        </article>
+
+        <article class="card">
+          <h2>Privacy Stance</h2>
+          <pre id="privacy" style="white-space: pre-wrap; background: rgba(7,17,31,0.95); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 12px; color: #e0f2fe; min-height: 80px; font-size: 0.92rem;">This hackathon demo uses strictly synthetic sample data only. No real-world PII or account information is processed.</pre>
+        </article>
+
+        <article class="card">
+          <h2>Key business focus</h2>
+          <ul>
+            <li>Morning sales drop detection</li>
+            <li>Trend analysis from synthetic sales logs</li>
+            <li>Operational recovery guidance</li>
+            <li>Simple, explainable recommendations</li>
+          </ul>
+        </article>
+      </section>
+
+      <p class="footer-note">Open this page from your local server at <strong>http://localhost:3000/</strong>.</p>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

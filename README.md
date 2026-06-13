@@ -70,6 +70,7 @@ graph TD
     style Fabric fill:#e1f5fe,stroke:#01579b
     style Foundry fill:#e8f5e9,stroke:#1b5e20
 
+```
 ---
 
 The system orchestrates four specialized agents using the Microsoft Agent Framework:

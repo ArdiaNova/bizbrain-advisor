@@ -162,48 +162,42 @@ This project uses strictly synthetic sample data.
   * API keys are stored in `.env` files and excluded from source control
 
 ---
-
 ## 🛠️ Getting Started
 
-* Prerequisites
-    - Python 3.10+
-    - Azure Subscription with access to Microsoft Foundry
+### 1. Prerequisites
+* Python 3.10+: Ensure you have a modern Python environment installed.
+* Azure Subscription: Required to access Microsoft Foundry.
+* Microsoft Foundry Project: You must have a project endpoint and a deployed model (e.g., Phi-4-reasoning).
 
-* Installation
-    - Clone the repository:
-    - Create and activate a virtual environment:
+### 2. Installation
+* First, clone the repository and navigate to the project folder:
+    git clone https://github.com/ArdiaNova/bizbrain-advisor.git
+    cd bizbrain-advisor
 
-* Install dependencies:
-    - Configuration
-        Create a .env file in the root directory and add your credentials:
+### 3. Create and Activate a Virtual Environment
+This ensures your dependencies do not conflict with other projects.
+    python -m venv .venv
 
-            AZURE_AI_PROJECT_ENDPOINT=your-project-endpoint-here
-            AZURE_AI_MODEL_DEPLOYMENT=Phi-4-reasoning
-            AZURE_AI_PROJECT_KEY=your-key-here
-
-    - Run the Application
-    - python run_model.py
-
----
-
-### Activate the environment & Install dependencies
 # Windows:
 .venv\Scripts\activate
 # macOS/Linux:
 source .venv/bin/activate
 
-pip install -r requirements.txt
+### 4. Install Dependencies
+Install the Microsoft Agent Framework and other required libraries:
+    pip install -r requirements.txt
 
-### Configure your environment
-Create a `.env` file in the root directory and add your credentials:
-    *   `AZURE_AI_PROJECT_ENDPOINT=your-project-endpoint-here
-    *   `AZURE_AI_MODEL_DEPLOYMENT=Phi-4-reasoning
-    *   `AZURE_AI_PROJECT_KEY=your-key-here
+### 5. Configure Your Environment
+    Create a .env file in the root directory. Note: Never commit this file to GitHub.
 
-### Run the Application
-python run_model.py
+* AZURE_AI_PROJECT_ENDPOINT=your-project-endpoint-here
+* AZURE_AI_MODEL_DEPLOYMENT=Phi-4-reasoning
+* AZURE_AI_PROJECT_KEY=your-key-here
 
----
+### 6. Run the Application
+Launch the advisor and browser-based reasoning interface:
+    python run_model.py
+
 
 #### 🛠️ Tech Stack & Data Sources
 *   **Orchestration:** Microsoft Agent Framework

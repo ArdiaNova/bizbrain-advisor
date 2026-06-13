@@ -89,8 +89,8 @@ The system orchestrates four specialized agents using the Microsoft Agent Framew
 
 * **Critic & Verifier Agent**
 
-  * Reviews proposed actions against inventory safety rules and business constraints before approval
-
+  * Reviews proposed actions against inventory safety rules and business constraints before final approval
+  
 * **Strategic Recommender Agent**
 
   * Synthesizes outputs from all sub-agents into an Executive Summary with prioritized, cited actions
@@ -165,22 +165,59 @@ This project uses strictly synthetic sample data.
 
 ## 🛠️ Getting Started
 
-### Prerequisites
+* Prerequisites
+    - Python 3.10+
+    - Azure Subscription with access to Microsoft Foundry
 
-* Python 3.10+
-* Azure Subscription
-* Microsoft Foundry access
+* Installation
+    - Clone the repository:
+    - Create and activate a virtual environment:
 
-### Installation
+* Install dependencies:
+    - Configuration
+        Create a .env file in the root directory and add your credentials:
 
-1. Clone the repository:
+            AZURE_AI_PROJECT_ENDPOINT=your-project-endpoint-here
+            AZURE_AI_MODEL_DEPLOYMENT=Phi-4-reasoning
+            AZURE_AI_PROJECT_KEY=your-key-here
 
-```bash
-git clone <your-repository-url>
-```
+    - Run the Application
+    - python run_model.py
 
-### Create a virtual environment:
+---
 
-```bash
-python -m venv .venv
-```
+### Activate the environment & Install dependencies
+# Windows:
+.venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
+
+pip install -r requirements.txt
+
+### Configure your environment
+Create a `.env` file in the root directory and add your credentials:
+AZURE_AI_PROJECT_ENDPOINT=your-project-endpoint-here
+AZURE_AI_MODEL_DEPLOYMENT=Phi-4-reasoning
+AZURE_AI_PROJECT_KEY=your-key-here
+
+### Run the Application
+python run_model.py
+
+---
+
+#### 🛠️ Tech Stack & Data Sources
+*   **Orchestration:** Microsoft Agent Framework
+*   **Intelligence Layers:** Foundry IQ (Grounding) and Fabric IQ (Semantics)
+*   **AI Assistance:** Developed using **GitHub Copilot** in VS Code
+*   **Grounding Data (Synthetic):** 
+    *   `business_playbook.md` (Strategic guidance)
+    *   `inventory_rules.md` (Operational constraints)
+    *   `sales_logs.md` (Synthetic revenue signals)
+
+---
+
+#### ⚠️ Important: Strategic Roadmap & Deployment
+While this prototype currently runs in a local environment for the hackathon demo, it is architected for a **Hosted Agent Story**
+*   **Production Path:** The Planner–Executor loop is designed to be containerized and deployed as a **Hosted Agent in Foundry Agent Service**
+*   **Managed Identity:** Moving to a hosted environment allows for secure managed scaling and session persistence without baking secrets into the app code
+*   **Proactive Intelligence:** Our vision includes integrating **Work IQ** to adapt these business recommendations around an owner's specific schedule and focus windows 

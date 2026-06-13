@@ -1,5 +1,7 @@
 # 🧠 BizBrain Advisor: Strategic Reasoning Agent for Small Business
 
+![BizBrain Dashboard](docs/images/bizbrain-advisor_SS01_before-run.png)
+
 ## 📌 Project Overview
 
 BizBrain Advisor is a sophisticated multi-agent reasoning system designed to empower small business owners.
@@ -12,6 +14,21 @@ This project was developed for the **Agents League Hackathon (Battle #2: Reasoni
 
 ---
 
+## 🎯 Why BizBrain Advisor Matters
+
+Small businesses generate valuable operational data every day, but many owners lack the time and expertise to convert that information into strategic decisions.
+
+BizBrain Advisor acts as an AI business analyst by:
+
+- 📉 Detecting hidden revenue declines before they become major losses.
+- 📦 Identifying operational risks such as inventory shortages.
+- 💰 Estimating the ROI of recommended interventions.
+- 🧠 Providing transparent reasoning with citations and human approval.
+
+The result is a practical AI advisor that transforms raw business signals into measurable business actions.
+
+---
+
 ## 💡 The Solution
 
 BizBrain Advisor utilizes a **Planner–Executor reasoning pattern** to coordinate a team of specialized AI agents.
@@ -21,6 +38,40 @@ The system identifies hidden trends in revenue, synthesizes findings into ground
 ---
 
 # 🏗️ Multi-Agent Architecture & Responsibilities
+
+---
+
+graph TD
+    %% User Interaction
+    User[Small Business Owner] -->|Query: e.g., '15% Sales Drop'| Recommender
+
+    %% Orchestrator / Planner
+    subgraph "Reasoning Loop (Microsoft Agent Framework)"
+        Recommender[Strategic Recommender Agent<br/>'The Planner']
+        Recommender -->|Task: Analyze Revenue| Trend[Trend Analyst Agent]
+        Recommender -->|Task: Check Supply/Stock| Ops[Operations & Risk Agent]
+        
+        Trend -->|Findings: Morning drop| Recommender
+        Ops -->|Findings: Low oat milk| Recommender
+    end
+
+    %% Grounding Layers
+    subgraph "Microsoft IQ Intelligence Layers"
+        Fabric[Fabric IQ<br/>'Semantic Meaning'] -.->|Defines: Revenue vs. Profit| Recommender
+        Foundry[Foundry IQ<br/>'Grounded Knowledge'] -.->|Cites: Playbooks & Supplier Rules| Recommender
+    end
+
+    %% Decision & Output
+    Recommender -->|82% Confidence Plan| HITL{Human-in-the-Loop<br/>Approve & Launch}
+    HITL -->|Approved| Dashboard[Evaluation Dashboard<br/>Actionable ROI Strategy]
+
+    %% Styling
+    style User fill:#f9f,stroke:#333,stroke-width:2px
+    style HITL fill:#ff9,stroke:#333,stroke-width:2px
+    style Fabric fill:#e1f5fe,stroke:#01579b
+    style Foundry fill:#e8f5e9,stroke:#1b5e20
+
+---
 
 The system orchestrates four specialized agents using the Microsoft Agent Framework:
 
